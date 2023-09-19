@@ -1,22 +1,23 @@
 const express = require("express");
 const path = require("path");
+const cookieParser = require("cookie-parser");
+const bodyParser = require("body-parser");
+const PORT = process.env.PORT || 3000;
 
 const app = express();
 
-app.use(express.json());
+app.use(cookieParser());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
-app.use("/static", express.static(path.resolve(__dirname, "frontend", "static")));
+app.use("/", express.static(path.resolve(__dirname, "public", "assets")));
 
 app.get("/*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "frontend", "index.html"));
+    res.sendFile(path.resolve(__dirname, "public", "index.html"));
 });
 
-app.post('/getpostdata', (req, res) => {
-    if(req.body.id == 1) {
-        res.status(200).json({ title: 'Post 1 is awesome', content: 'This is the post content. This should be in a form of a paragraph.'});
-    } else {
-        res.status(200).json({ title: `This is post # ${req.body.id}`, content: 'This is the post content. This should be in a form of a paragraph.'});
-    }
+app.post('/post', (req, res) => {
+    res.status(200).json({ reply: 'Hi' });
 });
 
-app.listen(process.env.PORT || 3000, () => console.log("Server running..."));
+app.listen(PORT, () => console.log(`Server Live at port: ${PORT}`));
