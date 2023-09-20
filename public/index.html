@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Single Page App</title>
+        <title></title>
         <link rel="stylesheet" href="/css/index.css">
         <link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="/vendor/sweetalert2/dist/sweetalert2.min.css">
@@ -12,19 +12,32 @@
         <script nomodule src="https://unpkg.com/ionicons@7.1.2/dist/ionicons/ionicons.js"></script>
     </head>
 <body>
+    <div class="header">
+        <ul class="header-container">
+            <li class="header-item" onclick="location.href = '/'">
+                <ion-icon name="chevron-back-circle-outline" size="large"></ion-icon>
+            </li>
+            <li class="header-item">
+                Two
+            </li>
+            <li class="header-item">
+                Three
+            </li>
+        </ul>
+    </div>
     <div id="app"></div>
     <div class="nav">
         <a href="/" data-link class="nav-item active">
-            <ion-icon name="home-outline" class="home-icon" data-link></ion-icon>
-            <span class="nav-text" data-link>Home</span>
+            <ion-icon name="home-outline" class="home-icon" href="/" data-link></ion-icon>
+            <span class="nav-text" href="/" data-link>Home</span>
         </a>
         <a href="/posts" data-link class="nav-item">
-            <ion-icon name="list-outline" class="posts-icon" data-link></ion-icon>
-            <span class="nav-text" data-link>Posts</span>
+            <ion-icon name="list-outline" class="posts-icon" href="/posts" data-link></ion-icon>
+            <span class="nav-text" href="/posts" data-link>Posts</span>
         </a>
         <a href="/settings" data-link class="nav-item">
-            <ion-icon name="settings-outline" class="settings-icon" data-link></ion-icon>
-            <span class="nav-text" data-link>Settings</span>
+            <ion-icon name="settings-outline" class="settings-icon" href="/settings" data-link></ion-icon>
+            <span class="nav-text" href="/settings" data-link>Settings</span>
         </a>
     </div>
 
